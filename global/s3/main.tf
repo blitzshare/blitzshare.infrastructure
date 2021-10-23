@@ -1,4 +1,3 @@
-
 terraform {
   required_version = "= 1.0.9"
 }
@@ -19,5 +18,9 @@ resource "aws_s3_bucket" "terraform-state-store" {
         sse_algorithm = "AES256"
       }
     }
+  }
+  tags = {
+    "deployed" = "terraform",
+    "domain" = "blitzshare"
   }
 }
