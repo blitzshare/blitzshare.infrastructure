@@ -17,3 +17,8 @@ variable "region" {
   default     = "eu-west-1"
   description = "AWS region"
 }
+
+variable "prefix" {
+  type    = string
+  default = "blitzshare"
+}
