@@ -3,11 +3,18 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-west-1"
+  region = var.region
 }
 
-resource "aws_s3_bucket" "terraform-state-store" {
-  bucket = "${var.prefix}-terraform-state-s3-bicket"
+locals {
+  tags = {
+    "deployed" = "terraform",
+    "domain"   = var.domain
+  }
+}
+
+resource "aws_s3_bucket" "terraform_state_store" {
+  bucket = "${var.domain}-terraform-state-store"
   versioning {
     enabled = true
   }
@@ -19,8 +26,5 @@ resource "aws_s3_bucket" "terraform-state-store" {
       }
     }
   }
-  tags = {
-    "deployed" = "terraform",
-    "domain"   = var.prefix
-  }
+  tags = local.tags
 }

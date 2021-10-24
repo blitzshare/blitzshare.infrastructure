@@ -1,9 +1,14 @@
 provider "aws" {
   region = var.region
+   backend "s3" {
+    bucket = "blitzshare-terraform-state-store"
+    key    = "eu-west-1/eks/terraform.tfstate"
+    region = "eu-west-1"
+  }
 }
 
 resource "aws_ecr_repository" "blitzshare_fileshare_api" {
-  name                 = "${var.prefix}-fileshare-api-ecr"
+  name                 = "${var.domain}-fileshare-api-ecr"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {

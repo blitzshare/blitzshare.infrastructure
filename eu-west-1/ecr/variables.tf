@@ -1,4 +1,4 @@
-variable "prefix" {
+variable "domain" {
   type    = string
   default = "blitzshare"
 }
