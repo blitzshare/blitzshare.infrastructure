@@ -2,7 +2,7 @@ terraform {
   required_version = "= 1.0.9"
   backend "s3" {
     bucket = "blitzshare-terraform-state-store"
-    key    = "eu-west-1/s3/fileupload/terraform.tfstate"
+    key    = "eu-west-1/s3/fileshare/terraform.tfstate"
     region = "eu-west-1"
   }
 }

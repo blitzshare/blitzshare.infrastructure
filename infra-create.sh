@@ -1,9 +1,11 @@
-pushd ${PWD}/global/s3
+# assuming that state s3 bucket already created
+
+pushd ${PWD}/eu-west-1/s3/fileupload
 terraform_v1.0.9 init 
 terraform_v1.0.9 apply
 popd
 
-pushd ${PWD}/global/ecr
+pushd ${PWD}/eu-west-1/ecr
 terraform_v1.0.9 init
 terraform_v1.0.9 apply
 popd

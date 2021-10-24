@@ -1,8 +1,3 @@
-variable "cluster_name" {
-  type    = string
-  default = "blitzshare-eks-cluster"
-}
-
 variable "domain" {
   type    = string
   default = "blitzshare"

@@ -1,10 +1,14 @@
-provider "aws" {
-  region = var.region
-   backend "s3" {
+terraform {
+  required_version = "= 1.0.9"
+  backend "s3" {
     bucket = "blitzshare-terraform-state-store"
-    key    = "eu-west-1/eks/terraform.tfstate"
+    key    = "eu-west-1/ecr/blitzshare-fileshare-api/terraform.tfstate"
     region = "eu-west-1"
   }
+}
+
+provider "aws" {
+  region = var.region
 }
 
 resource "aws_ecr_repository" "blitzshare_fileshare_api" {
@@ -17,6 +21,6 @@ resource "aws_ecr_repository" "blitzshare_fileshare_api" {
 
   tags = {
     "deployed" = "terraform",
-    "domain"   = var.prefix
+    "domain"   = var.domain
   }
 }
