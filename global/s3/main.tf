@@ -21,6 +21,6 @@ resource "aws_s3_bucket" "terraform-state-store" {
   }
   tags = {
     "deployed" = "terraform",
-    "domain"   = "blitzshare"
+    "domain"   = var.prefix
   }
 }
