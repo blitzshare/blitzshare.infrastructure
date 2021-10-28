@@ -9,6 +9,7 @@ terraform {
 
 provider "aws" {
   region = var.region
+  allowed_account_ids = ['587813402793']
 }
 
 resource "aws_ecr_repository" "blitzshare_fileshare_api" {
