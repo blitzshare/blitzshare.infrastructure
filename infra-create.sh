@@ -15,7 +15,11 @@ terraform_v1.0.9 init
 terraform_v1.0.9 apply
 popd
 
-kubectl ctx arn:aws:eks:eu-west-1:587813402793:cluster/blitzshare-cluster
+aws eks --region eu-west-1 update-kubeconfig --name blitzshare-cluster
+kubectl ctx blitzshare-cluster
+bash bin/eks/kluster-load-balancer-deploy.sh
+
+
 
 
 
