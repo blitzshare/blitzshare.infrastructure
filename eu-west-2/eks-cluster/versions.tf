@@ -26,9 +26,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "blitzshare-terraform-state-store"
+    bucket = "eu-west-2-blitzshare-terraform-state-store"
     key    = "eu-west-1/eks-cluster/terraform.tfstate"
-    region = "eu-west-1"
+    region = "eu-west-2"
   }
   required_version = "= 1.0.9"
 }

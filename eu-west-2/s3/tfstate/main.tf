@@ -4,6 +4,7 @@ terraform {
 
 provider "aws" {
   region = var.region
+  # allowed_account_ids = ["587813402793"]
 }
 
 locals {
@@ -14,7 +15,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "terraform_state_store" {
-  bucket = "${var.domain}-terraform-state-store"
+  bucket = "${var.region}-${var.domain}-terraform-state-store"
   versioning {
     enabled = true
   }
