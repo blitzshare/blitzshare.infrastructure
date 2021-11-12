@@ -23,11 +23,9 @@ terraform_v1.0.9 init
 terraform_v1.0.9 apply
 popd
 
-aws eks --region ${REGION} update-kubeconfig --name blitzshare-cluster
-kubectl ctx blitzshare-cluster
-bash bin/eks/kluster-load-balancer-deploy.sh
-
-
-
+# k8s cluster config
+aws eks --region ${REGION} update-kubeconfig --name eu-west-2-blitzshare-cluster
+# kubectl ctx blitzshare-cluster
+# bash bin/eks/kluster-load-balancer-deploy.sh
 
 
