@@ -27,3 +27,37 @@ kubectl get pods --all-namespaces
 kubectl get services --all-namespaces
 
 kubectl delete namespace kubernetes-dashboard
+
+
+## Adding user to k8s
+```bash
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapAccounts: |
+    []
+  mapRoles: |
+    - "groups":
+      - "system:bootstrappers"
+      - "system:nodes"
+      "rolearn": "arn:aws:iam::847574585735:role/eu-west-2-blitzshare-cluster2021111909301403510000000a"
+      "username": "system:node:{{EC2PrivateDNSName}}"
+  mapUsers: |
+    - groups:
+      - system:masters
+      userarn: arn:aws:iam::847574585735:user/saleem
+      username: saleem
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-11-19T09:31:23Z"
+  labels:
+    app.kubernetes.io/managed-by: Terraform
+    terraform.io/module: terraform-aws-modules.eks.aws
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "12439"
+  uid: 536a7ffe-2067-4de7-98c3-952749ad1f60
+```
