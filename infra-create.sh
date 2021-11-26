@@ -25,6 +25,12 @@ popd
 
 # k8s cluster config
 aws eks --region ${REGION} update-kubeconfig --name ${REGION}-blitzshare-cluster
+# kube mq
+kubectl apply -f https://deploy.kubemq.io/init
+kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f52439
+
+# helm repo add kubemq-charts  https://kubemq-io.github.io/charts
+# helm install kubemq-cluster --set key={your-license-key} kubemq-charts/kubemq -n kubemq 
 # kubectl ctx blitzshare-cluster
 # bash bin/eks/kluster-load-balancer-deploy.sh
 
