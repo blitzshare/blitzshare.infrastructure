@@ -1,0 +1,37 @@
+
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: blitzshare-redis-ns
+  labels:
+    name: blitzshare-redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-svc
+  namespace: blitzshare-redis-ns
+spec:
+  type: ClusterIP
+  ports:
+    - name: redis
+      port: 6379
+      targetPort: 6379
+  selector:
+    app: blitzshare-redis-store-app
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: blitzshare-redis-store-pod
+  labels:
+    app: blitzshare-redis-store-app
+  namespace: blitzshare-redis-ns
+spec:
+  containers:
+    - name: redis
+      image: redis
+      command:
+        - redis-server
+      ports:
+        - containerPort: 6379
