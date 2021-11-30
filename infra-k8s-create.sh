@@ -1,7 +1,7 @@
 
 
 # setup k8s context
-kubectl ctx docker-desktop
+kubectl ctx minikube
 
 # kube mq
 kubectl apply -f https://deploy.kubemq.io/init
@@ -24,10 +24,3 @@ popd
 pushd ../blitzshare.api
 make k8s-apply
 popd
-
-# helm repo add kubemq-charts  https://kubemq-io.github.io/charts
-# helm install kubemq-cluster --set key={your-license-key} kubemq-charts/kubemq -n kubemq 
-# kubectl ctx blitzshare-cluster
-# bash bin/eks/kluster-load-balancer-deploy.sh
-
-
