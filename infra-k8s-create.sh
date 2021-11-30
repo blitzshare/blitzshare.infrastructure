@@ -1,11 +1,7 @@
 
 
 # setup k8s context
-kubectl ctx minikube
-
-# k8s cluster config
-
-
+kubectl ctx docker-desktop
 
 # kube mq
 kubectl apply -f https://deploy.kubemq.io/init
