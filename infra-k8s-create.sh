@@ -10,6 +10,11 @@ kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f524
 # redis store
 kubectl apply -f k8s/redis.yml
 
+#traefik
+pushd ./k8s/traefik
+bash ./apply.sh
+popd
+
 # kubemq worker
 pushd ../blitzshare.event.worker
 make k8s-apply
@@ -24,3 +29,4 @@ popd
 pushd ../blitzshare.api
 make k8s-apply
 popd
+

@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: b2c-traefik-ingress-route
+  namespace: {{ .Release.Namespace }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Path(`/test`)
+      services:
+        - name: blitzshare-api-svc
+          port: 80
+          scheme: http
