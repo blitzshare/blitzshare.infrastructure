@@ -1,7 +1,7 @@
 
-
+CONTEXT=arn:aws:eks:eu-west-2:847574585735:cluster/eu-west-2-blitzshare-cluster
 # setup k8s context
-kubectl ctx minikube
+kubectl ctx ${CONTEXT}
 
 # kube mq
 kubectl apply -f https://deploy.kubemq.io/init

@@ -61,3 +61,6 @@ metadata:
   resourceVersion: "12439"
   uid: 536a7ffe-2067-4de7-98c3-952749ad1f60
 ```
+
+M: bbk aws
+Email: pav3ldurov+aws@gmail.com
