@@ -24,3 +24,16 @@ popd
 pushd ../blitzshare.api
 make k8s-apply
 popd
+
+# k8s ingress
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=120s
+
+# https://kubernetes.github.io/ingress-nginx/deploy/
+kubectl apply -f ./k8s/ingress.yaml
