@@ -1,18 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minimal-ingress
+  name: blitzshare-ingress
+  namespace: blitzshare-api-ns   
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    # nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/default-backend: blitzshare-api-svc
 spec:
   rules:
-  # - host: api.blitzshare.me
+  # - host: blitzshare.local
   - http:
       paths:
       - path: /api
         pathType: Prefix
         backend:
           service:
-            name: blitzshare-api-ns
+            name: blitzshare-api-svc
             port:
               number: 80
+
+  ingressClassName: nginx

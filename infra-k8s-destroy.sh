@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTEXT=arn:aws:eks:eu-west-2:847574585735:cluster/eu-west-2-blitzshare-cluster
+CONTEXT=minikube
 # setup k8s context
 kubectl ctx $CONTEXT
 
