@@ -2,7 +2,7 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: blitzshare-redis-ns
+  name: blitzshare-ns
   labels:
     name: blitzshare-redis
 ---
@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis-svc
-  namespace: blitzshare-redis-ns
+  namespace: blitzshare-ns
 spec:
   type: ClusterIP
   ports:
@@ -26,7 +26,7 @@ metadata:
   name: blitzshare-redis-store-pod
   labels:
     app: blitzshare-redis-store-app
-  namespace: blitzshare-redis-ns
+  namespace: blitzshare-ns
 spec:
   containers:
     - name: redis
