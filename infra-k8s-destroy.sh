@@ -1,10 +1,14 @@
-
+CONTEXT=$1
+if [ "CONTEXT" == "" ]; then
+    echo "context not defined"
+    exit 1
+fi
 
 # setup k8s context
-kubectl ctx minikube
+kubectl ctx $CONTEXT
 
-kubectl delete namespace blitzshare-api-ns
-kubectl delete namespace blitzshare-bootstrap-ns
+kubectl delete namespace blitzshare-ns
+kubectl delete namespace blitzshare-ns
 kubectl delete namespace blitzshare-redis-ns
 kubectl delete namespace kubemq
 

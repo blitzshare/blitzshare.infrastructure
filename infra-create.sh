@@ -16,10 +16,6 @@ popd
 
 # k8s cluster config
 aws eks --region ${REGION} update-kubeconfig --name ${REGION}-blitzshare-cluster
-# kube mq
-kubectl apply -f https://deploy.kubemq.io/init
-kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f52439
-
 
 # k8s apply
 bash ${PWD}/infra-k8s-create.sh
