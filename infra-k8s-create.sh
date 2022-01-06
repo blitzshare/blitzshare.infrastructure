@@ -13,11 +13,6 @@ kubectl ctx ${CONTEXT}
 kubectl apply -f https://deploy.kubemq.io/init
 kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f52439
 
-
-# kube mq
-kubectl apply -f https://deploy.kubemq.io/init
-kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f52439
-
 # redis store
 kubectl apply -f k8s/redis.yml
 
