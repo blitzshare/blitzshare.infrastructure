@@ -8,6 +8,8 @@ fi
 
 # setup k8s context
 kubectl ctx ${CONTEXT}
+# setup k8s namespace
+kubectl ns blitzshare-ns
 
 # kube mq
 kubectl apply -f https://deploy.kubemq.io/init
