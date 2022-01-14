@@ -12,10 +12,7 @@ kubectl apply -f https://deploy.kubemq.io/init
 kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f52439
 # redis store
 kubectl apply -f k8s/redis.yml
-# kubemq worker
-pushd ../blitzshare.event.worker
-make k8s-apply
-popd
+
 # k8s bootstrap service
 pushd ../blitzshare.bootstrap.node
 make k8s-apply
@@ -24,4 +21,17 @@ popd
 pushd ../blitzshare.api
 make k8s-apply
 popd
+# kubemq worker
+pushd ../blitzshare.event.worker
+make k8s-apply
+popd
+
 kubectl ns blitzshare-ns # set k8s namespace
+
+helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+kubectl get svc/traefik
+kubectl get all -l"app.kubernetes.io/instance=traefik"
+helm upgrade traefik traefik/traefik -f ./k8s/traefik.values.yml
+kubectl apply -f  ./k8s/traefik.blitzshare-api-crd.yaml
+# kubectl get ingressroutes.traefik.containo.us
