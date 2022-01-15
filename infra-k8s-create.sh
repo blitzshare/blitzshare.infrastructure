@@ -28,10 +28,11 @@ popd
 
 kubectl ns blitzshare-ns # set k8s namespace
 
+# traefik install/config
 helm repo add traefik https://helm.traefik.io/traefik
 helm repo update
 kubectl get svc/traefik
 kubectl get all -l"app.kubernetes.io/instance=traefik"
-helm upgrade traefik traefik/traefik -f ./k8s/traefik.values.yml
-kubectl apply -f  ./k8s/traefik.blitzshare-api-crd.yaml
+helm upgrade traefik traefik/traefik -f ./k8s/traefik/traefik.values.yml
+kubectl apply -f ./k8s/traefik/traefik.blitzshare-api-crd.yaml
 # kubectl get ingressroutes.traefik.containo.us

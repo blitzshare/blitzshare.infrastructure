@@ -14,13 +14,22 @@ spec:
         - kind: Service
           name: blitzshare-api-svc
           port: 80
+    - kind: Rule
+      match: PathPrefix(`/`)
+      middlewares:
+        - name: strip-api-prefix
+      services:
+        - kind: Service
+          name: blitzshare-bootstrap-svc
+          port: 63785
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: strip-api-prefix
+  name: strip-prefix
 spec:
   stripPrefix:
     prefixes:
       - /api
+      - /p2p
     forceSlash: false
