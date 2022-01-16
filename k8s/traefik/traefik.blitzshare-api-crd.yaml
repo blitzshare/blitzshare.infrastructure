@@ -3,25 +3,15 @@ kind: IngressRoute
 metadata:
   name: blitzshare-api-crd
 spec:
-  entryPoints:
-    - web
   routes:
     - kind: Rule
       match: PathPrefix(`/api`)
       middlewares:
-        - name: strip-api-prefix
+        - name: strip-prefix
       services:
         - kind: Service
           name: blitzshare-api-svc
           port: 80
-    - kind: Rule
-      match: PathPrefix(`/`)
-      middlewares:
-        - name: strip-api-prefix
-      services:
-        - kind: Service
-          name: blitzshare-bootstrap-svc
-          port: 63785
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
@@ -31,5 +21,4 @@ spec:
   stripPrefix:
     prefixes:
       - /api
-      - /p2p
     forceSlash: false
