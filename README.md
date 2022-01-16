@@ -1,3 +1,5 @@
+![logo](./assets/logo.png)
+
 # blitzshare.infrastructure
 blitzshare project Infrastructure repository
 
