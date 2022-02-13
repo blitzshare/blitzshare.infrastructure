@@ -12,6 +12,7 @@ kubectl apply -f https://deploy.kubemq.io/init
 kubectl apply -f https://deploy.kubemq.io/key/0a5e3867-1149-40cf-b9f0-fe8321f52439
 # redis store
 kubectl apply -f k8s/redis.yml
+kubectl apply -f k8s/keystore-db.yaml
 
 # k8s bootstrap service
 pushd ../blitzshare.bootstrap.node
