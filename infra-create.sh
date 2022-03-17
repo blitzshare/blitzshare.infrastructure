@@ -3,11 +3,7 @@ if [ "REGION" == "" ]; then
     echo "region is not defined!"
     exit 1
 fi
-CONTEXT=$2
-if [ "CONTEXT" == "" ]; then
-    echo "context is not defined!"
-    exit 1
-fi
+
 # create terraform state s3 bucket
 pushd ${PWD}/${REGION}/s3/tfstate
 terraform_v1.0.9 init 

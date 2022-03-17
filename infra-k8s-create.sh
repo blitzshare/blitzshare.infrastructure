@@ -13,7 +13,6 @@ log_info(){
 }
 
 log_info "running deployment ctx=${CONTEXT} ns=${BLITZ_NS}"
-print_something ctx ${CONTEXT} # setup k8s context
 
 # papertrail logs deamon set config
 # kubectl create secret generic papertrail-destination --from-literal=papertrail-destination=syslog+tls://logs.papertrailapp.com:39117
