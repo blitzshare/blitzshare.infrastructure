@@ -15,7 +15,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "terraform_state_store" {
-  bucket = "${var.region}-${var.domain}-terraform-state-store"
+  bucket = "${var.region}-${var.domain}-tfstate-store"
   versioning {
     enabled = true
   }

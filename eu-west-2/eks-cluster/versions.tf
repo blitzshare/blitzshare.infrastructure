@@ -26,7 +26,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "eu-west-2-blitzshare-terraform-state-store"
+    bucket = "eu-west-2-blitzshare-tfstate-store"
     key    = "eu-west-2/eks-cluster/terraform.tfstate"
     region = "eu-west-2"
   }
